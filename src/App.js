@@ -28,6 +28,12 @@ function App() {
 
   };
 
+
+  const handleDelete = (userName)=> {
+    let filteredUsers = users.filter((user)=>(user.name!==userName))
+    setUsers(filteredUsers)
+
+  }
   return (
     <Container>
       <Row>
@@ -68,12 +74,28 @@ function App() {
 
       
        {/* Displaying Users */}
+       {/* <Row>
+
+        <Col md="12">
+          {users.map((user)=>(<>
+          <h2>{user.name}</h2>
+          <p>{user.age}</p>
+          </>))}
+
+
+        </Col>
+      </Row> */}
+        
+      
+
+       {/* Deleting */}
        <Row>
 
         <Col md="12">
           {users.map((user)=>(<>
           <h2>{user.name}</h2>
           <p>{user.age}</p>
+          <button onClick={()=>{handleDelete(user.name)}}>Delete</button>
           </>))}
 
 
